@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*/*Yêu cầu người dùng nhập tên từ bàn phím. 
+
+Nếu tên nhập vào là Admin thì yêu cầu nhập mật khẩu.
+Nếu mật khẩu là TheMaster thì in ra chuỗi Welcome.
+Nếu mật khẩu nhập vào là null in ra chuỗi Canceled.
+Còn lại in ra chuỗi Wrong password. 
+Nếu tên nhập vào là null in ra chuỗi canceld.
+Còn lại in ra chuỗi “I don’t know you”
+Để hoàn thành bài thực hành, học viên */
+    let userName = prompt("Nhập vào tên người dùng")
+        passWord ="";
+    if(userName == "Admin"){
+        passWord = prompt("Nhập mật khẩu");
+        if(passWord =="TheMaster"){
+            document.write("Welcome");
+        } else if(passWord ==""){
+            document.write("Canceled");
+        } else {
+            document.write("Wrong password");
+        }
+    } else if (userName == ""){
+        document.write("Canceld");
+    } else {
+        document.write("I don't know you");
+    }
+        
+    </script>
+</body>
+</html>
