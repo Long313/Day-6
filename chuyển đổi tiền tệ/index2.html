@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>Amount</td>
+        <td>From Currency</td>
+        <td>To Currency</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            id="money-input"
+            type="number"
+            placeholder="Nhập số tiền"
+            onchange="amount();"
+          />
+        </td>
+        <td>
+          <select id="first-currency" onchange="begin(this);">
+            <option value="Chon khu vuc">Chon khu vuc </option>
+            <option value="/23000">Việt Nam</option>
+            <option value="/1">Đô la Mỹ</option>
+            <option value="/122">Yên Nhật</option>
+            <option value="/6">Nhân dân tệ</option>
+            <option value="/0.9">Đồng Euro</option>
+          </select>
+        </td>
+        <td>
+          <select id="second-currency" onchange="end(this);">
+            <option value="Chon khu vuc">Chon khu vuc </option>
+            <option value="*23000">Việt Nam</option>
+            <option value="*1">Đô la Mỹ</option>
+            <option value="*122">Yên Nhật</option>
+            <option value="*6">Nhân dân tệ</option>
+            <option value="*0.9">Đồng Euro</option>
+          </select>
+        </td>
+        <td>
+          <button id="btn" type="button" onclick="convert();">Convert</button>
+        </td>
+      </tr>
+    </table>
+    <div id="result"></div>
+    <script>
+      let moneyInput = document.getElementById("money-input");
+      let result = document.getElementById("result");
+      let firstSelect = document.getElementById("first-currency");
+      let secondSelect = document.getElementById("second=currency");
+      let btn = document.getElementById("btn");
+      let str = "";
+      function amount(){
+        let money = moneyInput.value;
+        str += money;
+        console.log(str);
+      }
+
+      function begin(name){
+        let first = name.value;
+        str += first;
+        console.log(str);
+      }
+      function end(obj){
+        let second = obj.value;
+        str += second;
+        console.log(str)
+        str = eval(str)
+      }
+      function convert() {
+        let stri = parseFloat(str);
+        result.innerText = "Result: " + stri;
+      }
+    </script>
+  </body>
+</html>

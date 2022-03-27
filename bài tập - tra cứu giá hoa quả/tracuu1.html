@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Giá hoa quả</h1>
+    <select id="select" onchange="lookFor();">
+      <option value="ổi">Ổi</option>
+      <option value="dưa hấu">Dưa hấu</option>
+      <option value="táo">Táo</option>
+      <option value="xoài">Xoài</option>
+      <option value="cam">Cam</option>
+      <option value="chôm chôm">Chôm chôm</option>
+      <option value="măng cụt">Măng cụt</option>
+    </select>
+    <button type="button" name="xemgia" onclick="">Xem giá</button>
+    <br />
+    <div id="result"></div>
+    <script>
+      let result = document.getElementById("result");
+      function lookFor(){
+        let fruit = document.getElementById("select").value
+        switch (fruit) {
+          case "ổi":
+          case "dưa hấu":
+            result.innerText = "20000VND/kg";
+            break;
+          case "táo":
+          case "xoài":
+            result.innerText = "30000VND/kg";
+            break;
+          case "cam":
+          case "chôm chôm":
+            result.innerText = "40000VND/kg";
+            break;
+          case "măng cụt":
+            result.innerText = "50000VND/kg";
+            break;
+          default:
+            result.innerText = "Can not found";
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>

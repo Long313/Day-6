@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>Amount</td>
+        <td>From Currency</td>
+        <td>To Currency</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <input id="money-input" type="number" placeholder="Nhập số tiền" />
+        </td>
+        <td>
+          <select id="from" onchange="fromInput();">
+            <option value="">Chon khu vuc</option>
+            <option value="VND">Việt Nam</option>
+            <option value="USD">Đô la Mỹ</option>
+            <option value="JPY">Yên Nhật</option>
+            <option value="NDT">Nhân dân tệ</option>
+            <option value="EURO">Đồng Euro</option>
+          </select>
+        </td>
+        <td>
+          <select id="to" onchange="toInput();">
+            <option value="">Việt Nam</option>
+            <option value="USD2">Đô la Mỹ</option>
+            <option value="JPY2">Yên Nhật</option>
+            <option value="NDT2">Nhân dân tệ</option>
+            <option value="EURO2">Đồng Euro</option>
+          </select>
+        </td>
+        <td>
+          <button id="btn" type="button">Convert</button>
+        </td>
+      </tr>
+    </table>
+    <div id="result"></div>
+    <script>
+      let moneyInput = document.getElementById("money-input");
+      let result = document.getElementById("result");
+      let btn = document.getElementById("btn");
+      let money = 0;
+      moneyInput.addEventListener("change",function(){
+          money = parseFloat(moneyInput.value);
+          console.log(money);
+      }
+      )
+      let input = document.getElementById("from");
+      let ouput = document.getElementById("to");
+      let USD = 0;
+      function fromInput(){
+       let a = input.value;
+          switch(a){
+              case "VND":
+                  USD = money/23000;
+                  break;
+              case "USD":
+                  USD = money;
+                  break;
+              case "JPY":
+                  USD = money/122.09;
+                  break;
+              case "NDT":
+                  USD = money/6.37;
+                  break;
+              case "EURO":
+                  USD = money/0.91;
+                  break;
+          }
+          console.log(USD);
+      }
+      let end = 0;
+      function toInput(){
+          let b = output.value;
+          console.log(b);
+          switch(b){
+                case "VND2":
+                   end = USD*23000;
+                    break;
+                case "USD2":
+                    end = USD*1;
+                    break;
+                case "JPY2":
+                    end = USD*122.09;
+                    break;
+                case "NDT2":
+                    end= USD*6.37;
+                    break;
+                case "EURO2":
+                    end = USD*0.91;
+                    break;
+          }
+          console.log(end);
+        }
+    btn.addEventListener("click",function(){
+        result.innerText = "Result " + end;
+    })
+    </script>
+  </body>
+</html>

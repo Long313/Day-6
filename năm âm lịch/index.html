@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let canlendarYear = parseInt(prompt("Nhập vào năm dương lịch"));
+      let can = canlendarYear%10;
+      let chi = canlendarYear%12;
+      let lunarYear = "";
+      switch (can) {
+        case 0:
+          lunarYear = "Canh";
+          break;
+        case 1:
+          lunarYear = "Tân";
+          break;
+        case 2:
+          lunarYear = "Nhâm";
+          break;
+        case 3:
+          lunarYear = "Quý";
+          break;
+        case 4:
+          lunarYear = "Giáp";
+          break;
+        case 5:
+          lunarYear = "Ất";
+          break;
+        case 6:
+          lunarYear = "Bính";
+          break;
+        case 7:
+          lunarYear = "Đinh";
+          break;
+        case 8:
+          lunarYear = "Mậu";
+          break;
+        case 9:
+          lunarYear = "Kỷ";
+          break;
+      }
+      switch (chi) {
+        case 0:
+          lunarYear += " Thân";
+          break;
+        case 1:
+          lunarYear += " Dậu";
+        case 2:
+          lunarYear += " Tuất";
+          break;
+        case 3:
+          lunarYear += " Hợi";
+          break;
+        case 4:
+          lunarYear += " Tý";
+          break;
+        case 5:
+          lunarYear += " Sửu";
+          break;
+        case 6:
+          lunarYear += " Dần";
+          break;
+        case 7:
+          lunarYear += " Mẻo";
+          break;
+        case 8:
+          lunarYear += " Thìn";
+          break;
+        case 9:
+          lunarYear += " Tỵ";
+          break;
+        case 10:
+          lunarYear += " Ngọ";
+          break;
+        case 11:
+          lunarYear += " Mùi";
+          break;
+      }
+      document.write("Năm âm lịch là năm: " +lunarYear);
+    </script>
+  </body>
+</html>

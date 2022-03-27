@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .table{
+            border: 1px solid white; 
+        }
+        .tr, td{
+            border: 1px solid white;
+          
+        }
+    </style>
+  </head>
+  <body>
+        <h1>Tính điểm đại học khối D</h1>
+         <table class="table">
+                <tr> 
+                    <td>Môn Toán</td> 
+                    <td>
+                        <input id="math" onchange="score('first',this)" type="number" min="0" max="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Môn Văn</td>
+                    <td>
+                        <input id="literature" onchange="score('second',this)" type="number" min="0" max="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Môn Anh</td>
+                    <td>
+                        <input id="english" onchange="score('third',this)" type="number" min="0" max="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Khu vực</td>
+                    <td>
+                        <select id="region" onchange="myRegion()">
+                            <option value=0.75>KV1</option>
+                            <option value=0.5>KV2-NT</option>
+                            <option value=0.25>KV2</option>
+                            <option value=0>KV3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="sum" type="button" name="tinhdiem" value="Tính điểm" onclick="caculator()">Tính điểm</button>
+                    </td>
+                </tr>
+            </table>
+        <div id="result"></div>
+    </body>
+    
+    <script>
+        
+         const region = document.getElementById('region');
+         const result = document.getElementById("result");
+         let sum = 0;
+         function myRegion(){
+             let a;
+             a = parseFloat(region.value);
+             console.log(region);
+             sum += a;
+             console.log(sum);
+             
+         }
+         let mathScore=0, literatureScore=0, englishScore=0;
+    
+         function score(number,obj){
+            //let mathScore = document.getElementById('math');
+            //let literatureScore = document.getElementById("literature");
+            //let englishScore = document.getElementById("english");
+                switch(number){
+                    case "first":
+                        mathScore = parseFloat(obj.value);
+                        //console.log(mathScore);
+                        sum +=mathScore
+                        break;
+                    case 'second':
+                        literatureScore = parseFloat(obj.value);
+                        //console.log(literatureScore);
+                        sum += literatureScore;
+                        //console.log(sum);
+                        break;
+                    case 'third':
+                        englishScore = parseFloat(obj.value);
+                        //console.log(englishScore);
+                        sum += englishScore;
+                        //console.log(sum);
+                        break;
+                }
+         }
+        
+         function caculator(){
+            result.innerText = "Tổng điểm Đai học khối D của bạn là: " + sum;
+         }
+    </script>
+  </body>
+</html>

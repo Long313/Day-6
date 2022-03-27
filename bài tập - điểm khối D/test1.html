@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính điểm ĐH khối D</h1>
+
+    <div class="total-score">
+      <p>Điểm Toán</p>
+      <input class="subject" type="number" name="math" onkeyup="enterScore('math',this);"/>
+      <p>Điểm Văn</p>
+      <input class="subject" type="number" name="literature" onkeyup="enterScore('literature',this);"/>
+      <p>Điểm Anh</p>
+      <input
+        class="subject"
+        type="number"
+        name="english"
+        onkeyup="enterScore('english',this);"
+      />
+      <br />
+      <br />
+      <select id="region">
+        <option value="0.75">KV1</option>
+        <option value="0.5">KV2-NT</option>
+        <option value="0.25">KV2</option>
+        <option value="0">KV3</option>
+      </select>
+      <br />
+      <br />
+      <button type="button" onclick="total();">Tính điểm</button>
+      <br />
+      <div id="result"></div>
+      <br />
+      <br />
+    </div>
+    <script>
+        let region = document.getElementById("region");
+        let sum = 0;
+        function enterScore(subject,obj){
+            switch(subject){
+                case "math":
+                    sum += Number(obj.value);
+                    break;
+                case "literature":
+                    sum += Number(obj.value);
+                    break;
+                case "english":
+                    sum += Number(obj.value);
+                    break;
+            }
+        }
+        function total(){
+            result.innerText = sum + Number(region.value);
+        }
+    </script>
+</body>
+</html>

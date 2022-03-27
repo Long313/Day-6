@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .total-score {
+        border: 1px solid black;
+        width: 25%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tính điểm ĐH khối D</h1>
+
+    <div class="total-score">
+      <p>Điểm toán</p>
+      <input class="subject" type="number" name="math" />
+      <p>Điểm văn</p>
+      <input class="subject" type="number" name="literature" />
+      <p>Điểm văn</p>
+      <input
+        class="subject"
+        type="number"
+        name="english"
+        onchange="enterScore();"
+      />
+      <br />
+      <br />
+      <select id="region" onchange="enterRegion()">
+        <option value="0">Chọn khu vực</option>
+        <option value="0.75">KV1</option>
+        <option value="0.5">KV2-NT</option>
+        <option value="0.25">KV2</option>
+        <option value="0">KV3</option>
+      </select>
+      <br />
+      <br />
+      <button type="button" onclick="total();">Tính điểm</button>
+      <br />
+      <div id="result"></div>
+      <br />
+      <br />
+    </div>
+    <script>
+      let result = document.getElementById("result");
+      let sum = 0;
+      function enterScore() {
+        let subject = document.querySelectorAll(".subject");
+        for (let i = 0; i < subject.length; i++) {
+          sum += parseFloat(subject[i].value);
+          console.log(sum);
+        }
+      }
+      let region = document.getElementById("region");
+      function enterRegion() {
+        region = parseFloat(region.value);
+       //console.log(region);
+        sum += region;
+        //console.log(sum);
+      }
+      //console.log(sum);
+      function total() {
+        result.innerText = "Tổng điểm ĐH khối D = " + sum;
+      }
+    </script>
+  </body>
+</html>
