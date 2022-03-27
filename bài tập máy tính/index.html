@@ -1,20 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <style>
+      .caculator {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+      <h1>Máy tính cầm tay</h1>
+      <br/>
+      <div id="result">&nbsp;</div>
     <div>
-        <table>
-            <tr>
-                <td>
-                    <div id="result"></div>
-                </td>
-            </tr>
-        </table>
+      <table class="caculator">
+        <tr>
+          <td>
+            <button id="1" type="button" value="1" onclick="enterNumber(this);">
+              1
+            </button>
+          </td>
+          <td>
+            <button id="2" type="button" value="2" onclick="enterNumber(this);">
+              2
+            </button>
+          </td>
+          <td>
+            <button id="3" type="button" value="3" onclick="enterNumber(this);">
+              3
+            </button>
+          </td>
+          <td>
+            <button id="+" type="button" value="+" onclick="caculator(this);">
+              +
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button id="4" type="button" value="4" onclick="enterNumber(this);">
+              4
+            </button>
+          </td>
+          <td>
+            <button id="5" type="button" value="5" onclick="enterNumber(this);">
+              5
+            </button>
+          </td>
+          <td>
+            <button id="6" type="button" value="6" onclick="enterNumber(this);">
+              6
+            </button>
+          </td>
+          <td>
+            <button id="-" type="button" value="-" onclick="caculator(this);">
+              -
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button id="7" type="button" value="7" onclick="enterNumber(this);">
+              7
+            </button>
+          </td>
+          <td>
+            <button id="8" type="button" value="8" onclick="enterNumber(this);">
+              8
+            </button>
+          </td>
+          <td>
+            <button id="9" type="button" value="9" onclick="enterNumber(this);">
+              9
+            </button>
+          </td>
+          <td>
+            <button id="*" type="button" value="*" onclick="caculator(this);">
+              *
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button id="C" type="button" value="C" onclick="enterNumber(this);">
+              C
+            </button>
+          </td>
+          <td>
+            <button id="0" type="button" value="0" onclick="enterNumber(this);">
+              0
+            </button>
+          </td>
+          <td>
+            <button id="=" type="button" value="=" onclick="end();">=</button>
+          </td>
+          <td>
+            <button id="/" type="button" value="/" onclick="caculator(this);">
+              /
+            </button>
+          </td>
+        </tr>
+      </table>
     </div>
-</body>
-</html>
+    <script>
+        let result = document.getElementById("result");
+        let firstNumber = 0;
+        let secondNumber = 0;
+        let firstStr = "";
+        let secondStr = "";
+        let thirdStr = "";
+        let fourStr ="";
+        let output= 0;
+        var updateResult="";
+        function enterNumber(obj){
+          firstStr += obj.value;
+          if(firstStr.includes("C")){
+              firstStr = firstStr.substring(0,firstStr.length-2);
+              firstNumber = Number(firstStr);
+          } else {updateResult = firstStr;
+            result.innerText =updateResult;
+              firstNumber = Number(firstStr);
+          }
+          //console.log("firstNumber= "+firstNumber);
+          //console.log("firstStr= "+firstStr);
+          //result.innerText = firstStr;
+      }
+        var position = 0;
+        function caculator(object){
+            secondStr += object.value;
+            //console.log(secondStr);
+            thirdStr = firstStr+ secondStr;
+            //console.log("thirdStr= "+thirdStr);
+            position = (thirdStr.indexOf(secondStr));
+        //console.log("position= "+position);
+        //result.innerText = thirdStr;
+          updateResult = secondStr;
+          result.innerText = updateResult;
+        }
+        console.log(firstStr);
+        function end(){
+            //console.log("position= "+position);
+            fourStr = firstStr.substring(position,firstStr.length);
+            secondNumber = Number(fourStr);
+            firstStr = firstStr.substring(0,position);
+            firstNumber = Number(firstStr);
+           console.log("secondNumber= "+secondNumber);
+           console.log("firstNumber= "+firstNumber);
+
+           switch(secondStr){
+                case "+":
+                   output = firstNumber + secondNumber;
+                   break;
+                case "-":
+                    output = firstNumber - secondNumber;
+                    break;
+                case "*":
+                    output = firstNumber * secondNumber;
+                    break;
+                case "/":
+                    output = firstNumber / secondNumber;
+                    break;        
+           }
+           result.innerText = output;
+        }
+        
+    </script>
+  </body>
+</html
